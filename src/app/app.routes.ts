@@ -8,5 +8,5 @@ export const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'list-poi' },
     { path: 'list-poi', component: Tab1Page },
     { path: 'list-poi/:id/search', component: Tab2Page },
-    { path: 'list-poi/:id/founded', component: Tab3Page },
+    { path: 'list-poi/:id/found', component: Tab3Page },
 ];

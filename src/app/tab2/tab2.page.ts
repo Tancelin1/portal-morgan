@@ -1,6 +1,6 @@
 import { Component, computed, Signal } from '@angular/core';
-import { Router } from '@angular/router';
-import { IonHeader, IonContent, IonTitle, IonToolbar, IonCard, IonCardTitle, IonCardHeader, IonCardContent, IonText } from "@ionic/angular/standalone";
+import { Router, RouterModule } from '@angular/router';
+import { IonHeader, IonContent, IonTitle, IonToolbar, IonCard, IonCardTitle, IonCardHeader, IonCardContent, IonText, IonButton } from "@ionic/angular/standalone";
 import { DataService } from 'src/app/services/data.service';
 import { POI } from 'src/app/services/POI.model';
 import { Position } from 'src/app/services/position.model';
@@ -10,7 +10,7 @@ import { PositionService } from 'src/app/services/user-position.service';
   standalone: true,
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
-  imports: [IonText, IonCardContent, IonCardHeader, IonCardTitle, IonCard, IonHeader, IonToolbar, IonTitle, IonContent]
+  imports: [IonButton, IonText, IonCardContent, IonCardHeader, IonCardTitle, IonCard, IonHeader, IonToolbar, IonTitle, IonContent, RouterModule]
 })
 export class Tab2Page {
 

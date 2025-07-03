@@ -28,6 +28,12 @@
           <p><strong>Your position lat:</strong> {{ userPosition$()!.lat }}</p>
           <p><strong>Your position lng:</strong> {{ userPosition$()!.lng }}</p>
           <p><strong>Distance:</strong> {{ calculDistance(selectedPOI$()!.position, userPosition$()!) }} mètres</p>
+          @if (calculDistance(selectedPOI$()!.position, userPosition$()!) < 60
+          ) {
+            <ion-button expand="full" color="success" [routerLink]="'/list-poi/' + selectedPOI$()!.id + '/found'">
+              Chasser ce POI
+            </ion-button>
+          }
         }
         @else {
           <p><strong>Your position:</strong> Non disponible</p>
