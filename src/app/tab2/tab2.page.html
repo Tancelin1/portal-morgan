@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Chercher POI
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Chercher POI</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  @if (selectedPOI$()) {
+  <ng-container>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{ selectedPOI$()!.name }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p><strong>ID:</strong> {{ selectedPOI$()!.id }}</p>
+        <p><strong>Latitude:</strong> {{ selectedPOI$()!.position.lat }}</p>
+        <p><strong>Longitude:</strong> {{ selectedPOI$()!.position.lng }}</p>
+
+        @if (userPosition$()) {
+          <p><strong>Your position lat:</strong> {{ userPosition$()!.lat }}</p>
+          <p><strong>Your position lng:</strong> {{ userPosition$()!.lng }}</p>
+          <p><strong>Distance:</strong> {{ calculDistance(selectedPOI$()!.position, userPosition$()!) }} mètres</p>
+        }
+        @else {
+          <p><strong>Your position:</strong> Non disponible</p>
+        }
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
+  }
+  @else {
+    <ion-text color="danger">
+      <h2>POI non trouvé.</h2>
+    </ion-text>
+  }
+</ion-content>
