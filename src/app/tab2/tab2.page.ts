@@ -10,7 +10,19 @@ import { PositionService } from 'src/app/services/user-position.service';
   standalone: true,
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
-  imports: [IonButton, IonText, IonCardContent, IonCardHeader, IonCardTitle, IonCard, IonHeader, IonToolbar, IonTitle, IonContent, RouterModule]
+  imports: [
+    IonButton,
+    IonText,
+    IonCardContent,
+    IonCardHeader,
+    IonCardTitle,
+    IonCard,
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonContent,
+    RouterModule
+  ]
 })
 export class Tab2Page {
 

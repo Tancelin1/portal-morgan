@@ -1,28 +1,7 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      POI trouver
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">POI Trouver</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  Start<br>
-  <model-viewer
-  src="assets/helipad.glb"
-  ios-src="assets/helipad.usdz"
-  ar
-  ar-modes="scene-viewer quick-look webxr"
-  camera-controls
-  auto-rotate
-  style="width: 100vw; height: 100vh;">
-</model-viewer><br>
-End<br>
-
-</ion-content>
+@if (selectedPOI$()) {
+  <h1>{{ selectedPOI$()?.name }}</h1>
+  <app-camera-ar />
+}
+@else {
+  <h1>POI not found</h1>
+}

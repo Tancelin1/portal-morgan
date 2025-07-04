@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { CameraArComponent } from 'src/app/ar-scene/ar-scene.component';
 
 import { Tab1Page } from 'src/app/tab1/tab1.page';
 import { Tab2Page } from 'src/app/tab2/tab2.page';
