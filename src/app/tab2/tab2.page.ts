@@ -1,22 +1,22 @@
 import { Component, computed, Signal } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { IonHeader, IonContent, IonTitle, IonToolbar, IonCard, IonCardTitle, IonCardHeader, IonCardContent, IonText, IonButton } from "@ionic/angular/standalone";
+import { IonHeader, IonContent, IonTitle, IonToolbar, IonCard, IonCardTitle, IonCardHeader, IonCardContent, IonText, IonButton, IonButtons, IonIcon } from "@ionic/angular/standalone";
 import { DataService } from 'src/app/services/data.service';
 import { POI } from 'src/app/services/POI.model';
 import { Position } from 'src/app/services/position.model';
 import { PositionService } from 'src/app/services/user-position.service';
+import { Location } from '@angular/common';
 
 @Component({
   standalone: true,
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
+  styleUrls: ['tab2.page.scss'],
   imports: [
     IonButton,
+    IonButtons,
+    IonIcon,
     IonText,
-    IonCardContent,
-    IonCardHeader,
-    IonCardTitle,
-    IonCard,
     IonHeader,
     IonToolbar,
     IonTitle,
@@ -34,6 +34,7 @@ export class Tab2Page {
     private readonly dataService: DataService,
     private readonly positionService: PositionService,
     private routeur: Router,
+    private location: Location
   ) {
     const id = Number(this.routeur.url.split('/')[2]);
     this.selectedPOI$ = computed(() => 
@@ -68,5 +69,9 @@ export class Tab2Page {
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 
     return R * c; // in metres
+  }
+
+  goBack() {
+    this.location.back();
   }
 }

@@ -1,3 +1,17 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        Retour
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      AR POI
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
 @if (selectedPOI$()) {
   <h1>{{ selectedPOI$()?.name }}</h1>
   <app-camera-ar />

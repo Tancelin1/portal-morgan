@@ -1,50 +1,50 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        Retour
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-title>
       Chercher POI
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Chercher POI</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  @if (selectedPOI$()) {
-  <ng-container>
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>{{ selectedPOI$()!.name }}</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
+<ion-content [fullscreen]="true" class="custom-gradient">
+  <div class="container">
+    @if (selectedPOI$()) {
+    <ng-container>
+      <div class="info-card">
+        <h2 class="text-center" style="font-weight:bold; font-size:1.5rem; margin-bottom:1rem;">{{ selectedPOI$()!.name }}</h2>
         <p><strong>ID:</strong> {{ selectedPOI$()!.id }}</p>
         <p><strong>Latitude:</strong> {{ selectedPOI$()!.position.lat }}</p>
         <p><strong>Longitude:</strong> {{ selectedPOI$()!.position.lng }}</p>
 
         @if (userPosition$()) {
-          <p><strong>Your position lat:</strong> {{ userPosition$()!.lat }}</p>
-          <p><strong>Your position lng:</strong> {{ userPosition$()!.lng }}</p>
+          <p><strong>Votre position lat:</strong> {{ userPosition$()!.lat }}</p>
+          <p><strong>Votre position lng:</strong> {{ userPosition$()!.lng }}</p>
           <p><strong>Distance:</strong> {{ calculDistance(selectedPOI$()!.position, userPosition$()!) }} mètres</p>
-          @if (calculDistance(selectedPOI$()!.position, userPosition$()!) < 60
-          ) {
+          @if (calculDistance(selectedPOI$()!.position, userPosition$()!) < 60) {
             <ion-button expand="full" color="success" [routerLink]="'/list-poi/' + selectedPOI$()!.id + '/found'">
               Chasser ce POI
             </ion-button>
           }
         }
         @else {
-          <p><strong>Your position:</strong> Non disponible</p>
+          <p><strong>Votre position:</strong> Non disponible</p>
         }
-      </ion-card-content>
-    </ion-card>
-  </ng-container>
-  }
-  @else {
-    <ion-text color="danger">
-      <h2>POI non trouvé.</h2>
-    </ion-text>
-  }
+      </div>
+    </ng-container>
+    }
+    @else {
+      <ion-text color="danger">
+        <h2>POI non trouvé.</h2>
+      </ion-text>
+    }
+  </div>
+  <div class="footer">
+    <span>y n o v . c o m</span>
+  </div>
 </ion-content>

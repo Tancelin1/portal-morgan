@@ -8,6 +8,7 @@ import { POI } from 'src/app/services/POI.model';
   standalone: true,
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
+  styleUrls: ['tab1.page.scss'],
   imports: [IonItem, IonList, IonHeader, IonToolbar, IonTitle, IonContent, RouterModule]
 })
 export class Tab1Page {
